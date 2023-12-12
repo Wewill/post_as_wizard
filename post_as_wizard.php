@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: Post As Wizard 
+Plugin Name: WAFF Post As Wizard 
 Author: Justin Petermann, Wilhem Arnoldy
 Version: 2.0
 Tags: post, wizard, metaboxes
