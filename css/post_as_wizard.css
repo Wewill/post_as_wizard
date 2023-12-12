@@ -1,0 +1,135 @@
+.paw_hidden {
+	display: none;
+}
+
+div#paw_actions p.submit {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+.small_input {
+	width: 20px;
+	font-size: 6px;
+	line-height: 10px;
+}
+
+.paw_passed {
+	font-weight: bold;
+	color: #2377bd;
+	cursor: pointer;
+}
+
+div#paw_titles ul {
+	padding-bottom: 40px;
+	width: 100%;
+	
+	display:table;
+}
+
+div#paw_titles ul li {
+	/*float: left;*/
+	padding-right: 20px;
+	padding-bottom: 10px;
+	border-bottom: 10px solid #444;
+	font-size: 10px;
+	
+	display: table-cell;
+	width: auto;
+}
+
+div#paw_titles ul li.paw_active {
+	border-bottom: 10px solid #2377bd;
+}
+
+div.paw_hidden_box {
+	display: none;
+}
+
+div#paw_actions {
+	display: block;
+	min-height: 30px;
+}
+
+div.paw_action_required_fields_disabled {
+	/*font-weight: bold;*/
+	margin-top: 10px;
+}
+
+.edit-post-header__settings div.paw_action_required_fields_disabled label {
+	font-size: x-small;
+	position: relative;
+	bottom: 6px;
+	color: #a10e03;
+	margin-right: 10px;
+}
+
+/* Toogle pill color */
+.toggle-pill-color {
+	position: relative;
+}
+.toggle-pill-color input[type="checkbox"] {
+	display: none;
+}
+.toggle-pill-color input[type="checkbox"]+div {
+	display: inline-block;
+	position: relative;
+	width: 3em;
+	height: 1.6em;
+	/* margin-bottom: 20px; */
+	border-radius: 1em;
+	background: #a10e03;
+	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.3);
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-transition: background 0.1s ease-in-out;
+	transition: background 0.1s ease-in-out;
+}
+.toggle-pill-color input[type="checkbox"]+div:before {
+	content: "";
+	display: block;
+	width: 1.2em;
+	height: 1.2em;
+	border-radius: 1em;
+	background: #fff;
+	box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	left: 0.2em;
+	top: 0.2em;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+.toggle-pill-color input[type="checkbox"]:checked+div {
+	background: #47cf73;
+}
+.toggle-pill-color input[type="checkbox"]:checked+div:before {
+	box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+	left: 1.6em;
+}
+
+.toggle-pill-color input[type="checkbox"]+div+label {
+	color: #a10e03;
+}
+.toggle-pill-color input[type="checkbox"]:checked+div+label {
+	color: #47cf73;
+}
+.toggle-pill-color label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	vertical-align: 4px;
+	height: 1.6em;
+	padding-left: calc( 3em + 5px );
+}
+
+/* Added to handle Block editor */
+
+.block-editor-page div#paw_titles {
+	padding: 0px 50px;
+}
+
+.block-editor-page div#paw_titles ul {
+	padding-bottom: 20px;
+}
+
