@@ -19,6 +19,14 @@ if ( !defined( 'ABSPATH' ) ) {
 if(!defined("IS_ADMIN"))
 	define("IS_ADMIN",  is_admin());
 
+if ( !is_admin() && !function_exists('rwmb_meta') ) {
+	wp_die('Error : please install Meta Box plugin.');
+}
+
+if ( !is_admin() && !function_exists('mb_settings_page_load') ) {
+	wp_die('Error : please install Meta Box Settings plugin.');
+}
+
 if (IS_ADMIN) {
 	function run_post_as_wizard() {
 		$current_path = dirname(__FILE__);
@@ -26,6 +34,11 @@ if (IS_ADMIN) {
 
 		$paw = new post_as_wizard();
 		add_action('admin_menu', array($paw, 'post_as_wizard_plugins_loaded'));
+
+		// Add a page in settings
+		add_filter( 'mb_settings_pages', array( $paw, 'add_setting_page' ) );
+		add_filter( 'rwmb_meta_boxes',  array( $paw, 'add_custom_fields_to_setting_page' ) );
+		
 	}
 
 	run_post_as_wizard();

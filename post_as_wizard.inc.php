@@ -13,7 +13,8 @@ class post_as_wizard {
 	public 	$gettext_learn = True;
 	private $config = array();
 
-	private $__posttypes = array('directory', 'farmer');
+	private $default__posttypes = array();
+	private $__posttypes = array();
 
 	public function __construct() {
 		$this->config_load();
@@ -95,6 +96,9 @@ class post_as_wizard {
 	}
 
 	public function init_post() {
+		// Get settings
+		$this->__posttypes = array_unique(array_merge($this->default__posttypes, $this->get_posts_from_setting_page()), SORT_REGULAR);
+		// Action after init 
 		add_action('admin_notices', 		array($this, 'paw_edit_form_top'));
 		add_action('add_meta_boxes', 		array($this, 'load'));
 		add_action('save_post', 			array($this, 'save_post'));
@@ -233,5 +237,53 @@ var paw_hide_box_ids = ["access_group","revisionsdiv","submitdiv","tagsdiv-editi
 			if(!empty(self::$paw_vars))
 					wp_localize_script( 'post_as_wizard_js', 'post_as_wizard_vars', self::$paw_vars);   
 	}
+
+	/*
+	* Settings
+	*/ 
+	public function add_setting_page( $settings_pages ) {
+		$settings_pages[] = [
+			'menu_title' => __( 'Post as wizard', 'wa-rsfp' ),
+			'id'         => 'post-as-wizard',
+			'parent'     => 'options-general.php',
+			'class'      => 'custom_css',
+			'style'      => 'no-boxes',
+			// 'message'    => __( 'Custom message', 'wa-rsfp' ), // Saved custom message
+			'customizer' => true,
+			'icon_url'   => 'dashicons-admin-generic',
+		];
+	
+		return $settings_pages;
+	}
+
+	public function add_custom_fields_to_setting_page( $meta_boxes ) {
+		$prefix = 'wapaw_';
+	
+		$meta_boxes[] = [
+			'id'             => 'post-as-wizard-fields',
+			'settings_pages' => ['post-as-wizard'],
+			'fields'         => [
+				[
+					'name'            => __( 'Allowed post type.s', 'wa-paw' ),
+					'id'              => $prefix . 'allowed_post',
+					'type'            => 'checkbox_list',
+					'inline'          => true,
+					'select_all_none' => true,
+					'options'         => $this->posts_options_callback(),
+				],
+			],
+		];
+	
+		return $meta_boxes;
+	}
+	
+	public function posts_options_callback() {
+		return get_post_types();
+	}
+
+	public function get_posts_from_setting_page() {
+		return rwmb_meta( 'wapaw_allowed_post', [ 'object_type' => 'setting' ], 'post-as-wizard' );
+	}
+
 	
 }
