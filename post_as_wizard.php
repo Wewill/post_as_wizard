@@ -19,11 +19,11 @@ if ( !defined( 'ABSPATH' ) ) {
 if(!defined("IS_ADMIN"))
 	define("IS_ADMIN",  is_admin());
 
-if ( is_admin() && !function_exists('rwmb_meta') ) {
+if ( !is_login() && is_admin() && !function_exists('rwmb_meta') ) {
 	wp_die('Error : please install Meta Box plugin.');
 }
 
-if ( is_admin() && !function_exists('mb_settings_page_load') ) {
+if ( !is_login() && is_admin() && !function_exists('mb_settings_page_load') ) {
 	wp_die('Error : please install Meta Box Settings plugin.');
 }
 
