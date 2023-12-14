@@ -534,8 +534,8 @@ jQuery(document).ready(function($) {
 		run_actions(); // Added W
 	} else {
 		let blockLoadedInterval = setInterval(function() {
-			console.log("PAW:: Trying to load paw...");
-			if (editorLoaded === true && $('.edit-post-visual-editor').length > 0 && $('.editor-post-featured-image__toggle').length > 0) {
+			console.log("PAW:: Trying to load paw...", editorLoaded, $('.edit-post-visual-editor').length > 0, $('.editor-post-featured-image__toggle').length > 0, "@TODO How to know if posttype avec featured image needed ?");
+			if (editorLoaded === true && $('.edit-post-visual-editor').length > 0 /*&& $('.editor-post-featured-image__toggle').length > 0*/) {
 				blockLoaded = true;
 			}
 			if (blockLoaded) {
