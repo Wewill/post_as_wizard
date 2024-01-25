@@ -98,12 +98,22 @@ class post_as_wizard {
 	public function init_post() {
 		// Get settings
 		$this->__posttypes = array_unique(array_merge($this->default__posttypes, $this->get_posts_from_setting_page()), SORT_REGULAR);
-		// Action after init 
-		add_action('admin_notices', 		array($this, 'paw_edit_form_top'));
-		add_action('add_meta_boxes', 		array($this, 'load'));
-		add_action('save_post', 			array($this, 'save_post'));
-		//Then make sure our vars will be added in the footer
-		add_action('admin_notices', 			array($this, 'add_options_to_script')); // ADD Wil // Not working see in first call 
+		// wp_die(count($this->__posttypes));
+
+		if ( count($this->__posttypes) > 0 ) :
+			// Action after init 
+			add_action('admin_notices', 		array($this, 'paw_edit_form_top'));
+			add_action('add_meta_boxes', 		array($this, 'load'));
+			add_action('save_post', 			array($this, 'save_post'));
+			//Then make sure our vars will be added in the footer
+			add_action('admin_notices', 			array($this, 'add_options_to_script')); // ADD Wil // Not working see in first call 
+		else:
+			print('
+				<div class="notice notice-warning is-dismissible">
+					<p><b>WAFF Post As Wizard :</b> Please choose post-types to activate wizard in Settings > Post as Wizard </p>
+				</div>'
+			);
+		endif;
 	}
 
 	public function paw_display_status() {
