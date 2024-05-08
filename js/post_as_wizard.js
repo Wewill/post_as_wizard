@@ -443,7 +443,7 @@ jQuery(document).ready(function($) {
 		// Hide editor toolbar 
 		$('.interface-interface-skeleton__sidebar').hide();
 		// Hide all uneeded buttons temporary on header
-		$('.edit-post-header__toolbar .edit-post-header-toolbar__left .components-button').hide();
+		$('.edit-post-header__toolbar .edit-post-header-toolbar .components-button').hide();
 		$('.edit-post-header__settings .components-button:not(.editor-post-save-draft):not(.editor-post-publish-button__button)').hide(); // Default Show draft / Save draft is not named at first load, then : 
 		$('.edit-post-header__settings .components-button').first().addClass('editor-post-save-draft').show(); // Default Show draft
 		$('.editor-post-publish-button__button').hide(); // Default Hide publish
@@ -452,11 +452,11 @@ jQuery(document).ready(function($) {
 		// Publish button 
 		//$('.editor-post-publish-button__button').hide();
 		// Add Wizard title 
-		if ($('.edit-post-header__toolbar .edit-post-header-toolbar__left #_paw_editor_title').length == 0) $('.edit-post-header__toolbar .edit-post-header-toolbar__left').append('<h3 id="_paw_editor_title" style="margin-right:30px;"><span class="dashicons-before dashicons-superhero-alt" style="color:silver;"></span> ' + ((post_as_wizard_vars["title"]) ? post_as_wizard_vars["title"] : 'Wizard') + '</h3>');
+		if ($('.edit-post-header__toolbar .edit-post-header-toolbar #_paw_editor_title').length == 0) $('.edit-post-header__toolbar .edit-post-header-toolbar').append('<h3 id="_paw_editor_title" style="margin-right:30px;"><span class="dashicons-before dashicons-superhero-alt" style="color:silver;"></span> ' + ((post_as_wizard_vars["title"]) ? post_as_wizard_vars["title"] : 'Wizard') + '</h3>');
 		// Add paw actions
-		if ($('.edit-post-header__toolbar .edit-post-header-toolbar__left .paw_editor').length == 0) {
-			$('.edit-post-header__toolbar .edit-post-header-toolbar__left').append('<a id="" class="paw_action_display_wizard paw_editor preview button --components-button is-secondary d-none">' + ((post_as_wizard_vars["paw_action_display_wizard"]) ? post_as_wizard_vars["paw_action_display_wizard"] : 'Wizard view') + '</a>');
-			$('.edit-post-header__toolbar .edit-post-header-toolbar__left').append('<a id="" class="paw_action_display_normal paw_editor preview button --components-button is-secondary d-none">' + ((post_as_wizard_vars["paw_action_display_normal"]) ? post_as_wizard_vars["paw_action_display_normal"] : 'Normal view') + '</a>');
+		if ($('.edit-post-header__toolbar .edit-post-header-toolbar .paw_editor').length == 0) {
+			$('.edit-post-header__toolbar .edit-post-header-toolbar').append('<a id="" class="paw_action_display_wizard paw_editor preview button --components-button is-secondary --d-none">' + ((post_as_wizard_vars["paw_action_display_wizard"]) ? post_as_wizard_vars["paw_action_display_wizard"] : 'Wizard view') + '</a>');
+			$('.edit-post-header__toolbar .edit-post-header-toolbar').append('<a id="" class="paw_action_display_normal paw_editor preview button --components-button is-secondary --d-none">' + ((post_as_wizard_vars["paw_action_display_normal"]) ? post_as_wizard_vars["paw_action_display_normal"] : 'Normal view') + '</a>');
 		}
 		// Add Wizard button helper 
 		if ($('.edit-post-header__settings #_paw_editor_helper').length == 0) $('.edit-post-header__settings').prepend('<h5 id="_paw_editor_helper" style="color:#3c434a;margin-right:5px;"></h5>');
@@ -479,7 +479,7 @@ jQuery(document).ready(function($) {
 		$('.edit-post-header__toolbar .components-button').show();
 		$('.edit-post-header__settings .components-button').show();
 		// // Add Wizard title 
-		// $('.edit-post-header__toolbar .edit-post-header-toolbar__left _paw_editor_title').remove();
+		// $('.edit-post-header__toolbar .edit-post-header-toolbar _paw_editor_title').remove();
 		// // Add paw actions
 		// $('.edit-post-header__settings .paw_action_display_wizard').remove();
 		// $('.edit-post-header__settings .paw_action_display_normal').remove();
