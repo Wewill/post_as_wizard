@@ -3,7 +3,7 @@
 /*
 Plugin Name: WAFF Post As Wizard 
 Author: Justin Petermann, Wilhem Arnoldy
-Version: 2.0
+Version: 2.1
 Tags: post, wizard, metaboxes
 Requires at least: 4 
 Tested up to: 6.4.1

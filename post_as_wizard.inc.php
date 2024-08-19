@@ -122,7 +122,7 @@ class post_as_wizard {
 var paw_required_active = '.(( current_user_can('administrator') ||current_user_can('fifam_admin') || current_user_can('fifam_editor' ) )?0:1).';
 var paw_start_active = '.$this->is_active.';
 var paw_current_tab = "'.$this->position_current.'";
-var paw_hide_box_ids = ["access_group","revisionsdiv","submitdiv","tagsdiv-edition","pageparentdiv","sectiondiv","types-information-table","slugdiv","authordiv","commentsdiv","wpcf-post-relationship"]; /* paw_status removed, commentsdiv added */
+var paw_hide_box_ids = ["access_group","revisionsdiv","submitdiv","tagsdiv-edition","pageparentdiv","sectiondiv","types-information-table","slugdiv","authordiv","commentsdiv","wpcf-post-relationship","cmplz_hide_banner_meta_box"]; /* paw_status removed, commentsdiv, cmplz_hide_banner_meta_box > added */
 //]]>
 </script>';
 		print '<div id="paw_actions">';
