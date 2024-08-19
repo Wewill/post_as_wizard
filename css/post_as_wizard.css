@@ -55,7 +55,7 @@ div.paw_action_required_fields_disabled {
 	margin-top: 10px;
 }
 
-.edit-post-header__settings div.paw_action_required_fields_disabled label {
+.editor-header__settings div.paw_action_required_fields_disabled label {
 	font-size: x-small;
 	position: relative;
 	bottom: 6px;
