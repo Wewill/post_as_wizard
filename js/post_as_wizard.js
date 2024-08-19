@@ -443,32 +443,32 @@ jQuery(document).ready(function($) {
 		// Hide editor toolbar 
 		$('.interface-interface-skeleton__sidebar').hide();
 		// Hide all uneeded buttons temporary on header
-		$('.edit-post-header__toolbar .edit-post-header-toolbar .components-button').hide();
-		$('.edit-post-header__settings .components-button:not(.editor-post-save-draft):not(.editor-post-publish-button__button)').hide(); // Default Show draft / Save draft is not named at first load, then : 
-		$('.edit-post-header__settings .components-button').first().addClass('editor-post-save-draft').show(); // Default Show draft
+		$('.editor-header__toolbar .editor-document-tools .components-button').hide();
+		$('.editor-header__settings .components-button:not(.editor-post-save-draft):not(.editor-post-publish-button__button)').hide(); // Default Show draft / Save draft is not named at first load, then : 
+		$('.editor-header__settings .components-button').first().addClass('editor-post-save-draft').show(); // Default Show draft
 		$('.editor-post-publish-button__button').hide(); // Default Hide publish
 		// Draft button 
 		//$('.editor-post-save-draft').hide();
 		// Publish button 
 		//$('.editor-post-publish-button__button').hide();
 		// Add Wizard title 
-		if ($('.edit-post-header__toolbar .edit-post-header-toolbar #_paw_editor_title').length == 0) $('.edit-post-header__toolbar .edit-post-header-toolbar').append('<h3 id="_paw_editor_title" style="margin-right:30px;"><span class="dashicons-before dashicons-superhero-alt" style="color:silver;"></span> ' + ((post_as_wizard_vars["title"]) ? post_as_wizard_vars["title"] : 'Wizard') + '</h3>');
+		if ($('.editor-header__toolbar .editor-document-tools #_paw_editor_title').length == 0) $('.editor-header__toolbar .editor-document-tools').append('<h3 id="_paw_editor_title" style="margin-right:30px;"><span class="dashicons-before dashicons-superhero-alt" style="color:silver;"></span> ' + ((post_as_wizard_vars["title"]) ? post_as_wizard_vars["title"] : 'Wizard') + '</h3>');
 		// Add paw actions
-		if ($('.edit-post-header__toolbar .edit-post-header-toolbar .paw_editor').length == 0) {
-			$('.edit-post-header__toolbar .edit-post-header-toolbar').append('<a id="" class="paw_action_display_wizard paw_editor preview button --components-button is-secondary --d-none">' + ((post_as_wizard_vars["paw_action_display_wizard"]) ? post_as_wizard_vars["paw_action_display_wizard"] : 'Wizard view') + '</a>');
-			$('.edit-post-header__toolbar .edit-post-header-toolbar').append('<a id="" class="paw_action_display_normal paw_editor preview button --components-button is-secondary --d-none">' + ((post_as_wizard_vars["paw_action_display_normal"]) ? post_as_wizard_vars["paw_action_display_normal"] : 'Normal view') + '</a>');
+		if ($('.editor-header__toolbar .editor-document-tools .paw_editor').length == 0) {
+			$('.editor-header__toolbar .editor-document-tools').append('<a id="" class="paw_action_display_wizard paw_editor preview button --components-button is-secondary --d-none">' + ((post_as_wizard_vars["paw_action_display_wizard"]) ? post_as_wizard_vars["paw_action_display_wizard"] : 'Wizard view') + '</a>');
+			$('.editor-header__toolbar .editor-document-tools').append('<a id="" class="paw_action_display_normal paw_editor preview button --components-button is-secondary --d-none">' + ((post_as_wizard_vars["paw_action_display_normal"]) ? post_as_wizard_vars["paw_action_display_normal"] : 'Normal view') + '</a>');
 		}
 		// Add Wizard button helper 
-		if ($('.edit-post-header__settings #_paw_editor_helper').length == 0) $('.edit-post-header__settings').prepend('<h5 id="_paw_editor_helper" style="color:#3c434a;margin-right:5px;"></h5>');
-		else $('.edit-post-header__settings #_paw_editor_helper').show();
+		if ($('.editor-header__settings #_paw_editor_helper').length == 0) $('.editor-header__settings').prepend('<h5 id="_paw_editor_helper" style="color:#3c434a;margin-right:5px;"></h5>');
+		else $('.editor-header__settings #_paw_editor_helper').show();
 		// Then, set continue or publish button and text 
 		set_blockeditor_paw_buttons(post_as_wizard_vars["max"], post_as_wizard_vars["total"], post_as_wizard_vars["submit_button"]);
 	}
 
 	function init_paw_action_required() {
 		// Add required for admin cb 
-		if ($('.edit-post-header__settings .paw_action_required_fields_disabled').length == 0) $('.edit-post-header__settings').prepend('<div class="paw_action_required_fields_disabled"><label for="paw_required_fields_disabled"><input type="checkbox" class="paw_required_fields_disabled">Champs requis désactivés</label>');
-		else $('.edit-post-header__settings .paw_action_required_fields_disabled').show();
+		if ($('.editor-header__settings .paw_action_required_fields_disabled').length == 0) $('.editor-header__settings').prepend('<div class="paw_action_required_fields_disabled"><label for="paw_required_fields_disabled"><input type="checkbox" class="paw_required_fields_disabled">Champs requis désactivés</label>');
+		else $('.editor-header__settings .paw_action_required_fields_disabled').show();
 	}
 
 	function reset_blockeditor_paw() {
@@ -476,15 +476,15 @@ jQuery(document).ready(function($) {
 		// Hide toolbar 
 		$('.interface-interface-skeleton__sidebar').show();
 		// Hide all uneeded buttons temporary 
-		$('.edit-post-header__toolbar .components-button').show();
-		$('.edit-post-header__settings .components-button').show();
+		$('.editor-header__toolbar .components-button').show();
+		$('.editor-header__settings .components-button').show();
 		// // Add Wizard title 
-		// $('.edit-post-header__toolbar .edit-post-header-toolbar _paw_editor_title').remove();
+		// $('.editor-header__toolbar .editor-document-tools _paw_editor_title').remove();
 		// // Add paw actions
-		// $('.edit-post-header__settings .paw_action_display_wizard').remove();
-		// $('.edit-post-header__settings .paw_action_display_normal').remove();
+		// $('.editor-header__settings .paw_action_display_wizard').remove();
+		// $('.editor-header__settings .paw_action_display_normal').remove();
 		// Hide Wizard helper 
-		$('.edit-post-header__settings #_paw_editor_helper').hide();
+		$('.editor-header__settings #_paw_editor_helper').hide();
 		// Show 
 		$('.editor-post-save-draft').show();
 		$('.editor-post-publish-button__button').show();
@@ -497,7 +497,7 @@ jQuery(document).ready(function($) {
 
 	function reset_paw_action_required() {
 		// Hide required for admin cb 
-		$('.edit-post-header__settings .paw_action_required_fields_disabled').hide();
+		$('.editor-header__settings .paw_action_required_fields_disabled').hide();
 	}
 
 	function set_blockeditor_paw_buttons(max = 0, total = 0, label) {
@@ -506,13 +506,13 @@ jQuery(document).ready(function($) {
 			if (max != null && total != null && max >= total - 1) {
 				// $('.editor-post-publish-button__button').attr('data-html', $('.editor-post-publish-button__button').html() );
 				// $('.editor-post-publish-button__button').html(label); // This is not working 
-				$('.edit-post-header__settings #_paw_editor_helper').html(label + ' :');
+				$('.editor-header__settings #_paw_editor_helper').html(label + ' :');
 				$('.editor-post-save-draft').hide();
 				$('.editor-post-publish-button__button').show()
 			} else {
 				// $('.editor-post-save-draft').attr('data-html', $('.editor-post-save-draft').html() );
 				// $('.editor-post-save-draft').html(label);  // This is not working
-				$('.edit-post-header__settings #_paw_editor_helper').html(label + ' :');
+				$('.editor-header__settings #_paw_editor_helper').html(label + ' :');
 				$('.editor-post-save-draft').addClass("is-primary");
 				$('.editor-post-save-draft').removeClass("is-tertiary");
 				$('.editor-post-save-draft').show();
@@ -653,7 +653,7 @@ jQuery(document).ready(function($) {
 
     function required_fields_disabled_changed() {
 		console.log("required_fields_disabled_changed:: ",paw_required_active, paw_elements);
-		if (is_block_editor) var prfd = $('.edit-post-header__settings .paw_required_fields_disabled');
+		if (is_block_editor) var prfd = $('.editor-header__settings .paw_required_fields_disabled');
 		else var prfd = $('.paw_required_fields_disabled');
 		if (prfd.is(':checked')) {
 			paw_required_active = false;
